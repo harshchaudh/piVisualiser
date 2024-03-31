@@ -1,4 +1,7 @@
-piDigits = '141592653589793238462643383279502884197'
+piFile = open("pi.txt", "r")
+line0 = piFile.readline()
+piDigits = piFile.readline()
+
 def value(place):
     values = []
     stringValues = piDigits[(place * 9):((place + 1) * 9)]
@@ -10,9 +13,12 @@ def value(place):
 def converter(values):
     rgbValues = []
     for color in values:
-        if color > 255:
-            while color > 255:
-                color -= 255
+        while color > 255:
+            color -= 255
         rgbValues.append(color)
     
     return rgbValues
+
+# We will use an n x 9 grid (n - rows and 9 columns)
+print(len(piDigits))
+print(value(5))
